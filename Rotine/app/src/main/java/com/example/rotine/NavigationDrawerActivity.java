@@ -50,7 +50,7 @@ public class NavigationDrawerActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_contatos, R.id.nav_sobre_nos)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_navigation_drawer);
@@ -63,6 +63,12 @@ public class NavigationDrawerActivity extends AppCompatActivity {
         View headerView = navigationView.getHeaderView(0); // Obtenha a referência para o layout do header
 
         // Encontre o elemento desejado dentro do layout do header
+        /*preciso fazer a mesma coisa com o nome do usuario, para isso preciso:
+        -pegar o nome do plain text quando fizer o cadastro;
+        -armazenar em uma coleção usuario do firestorm database;
+        -dar um get no nome deste usuario;
+        -e por fim dar um set no nameNavDraw passando o nome deste usuário como parâmetro
+         */
         emailNavDraw = headerView.findViewById(R.id.emailNavDraw);
 
         if(emailNavDraw != null){

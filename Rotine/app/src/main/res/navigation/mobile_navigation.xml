@@ -12,14 +12,14 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.rotine.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_contatos"
+        android:name="com.example.rotine.ui.contatos.ContatosFragment"
+        android:label="@string/menu_contatos"
+        tools:layout="@layout/fragment_contatos" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.rotine.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_sobre_nos"
+        android:name="com.example.rotine.ui.sobrenos.SobreNosFragment"
+        android:label="@string/menu_sobre_nos"
+        tools:layout="@layout/fragment_sobrenos" />
 </navigation>

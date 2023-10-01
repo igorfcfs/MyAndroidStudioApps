@@ -1,4 +1,4 @@
-package com.example.rotine.ui.gallery;
+package com.example.rotine.ui.sobrenos;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.rotine.databinding.FragmentGalleryBinding;
+import com.example.rotine.databinding.FragmentSobrenosBinding;
 
-public class GalleryFragment extends Fragment {
+public class SobreNosFragment extends Fragment {
 
-    private FragmentGalleryBinding binding;
+    private FragmentSobrenosBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        GalleryViewModel galleryViewModel =
-                new ViewModelProvider(this).get(GalleryViewModel.class);
+        SobreNosViewModel slideshowViewModel =
+                new ViewModelProvider(this).get(SobreNosViewModel.class);
 
-        binding = FragmentGalleryBinding.inflate(inflater, container, false);
+        binding = FragmentSobrenosBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textGallery;
-        galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textSlideshow;
+        slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
