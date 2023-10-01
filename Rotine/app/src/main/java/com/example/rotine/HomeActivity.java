@@ -8,14 +8,17 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.rotine.model.Usuario;
 import com.example.rotine.util.ConfiguraBd;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class HomeActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
+    private TextView txtWelcome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,9 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         auth = ConfiguraBd.auth();
+
+        txtWelcome = findViewById(R.id.txtWelcome);
+        txtWelcome.setText("Olá " + auth.getCurrentUser().getEmail());
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.example.rotine.model;
 
+import com.google.firebase.auth.FirebaseUser;
+
 public class Usuario {
 
     private String nome, email, senha;

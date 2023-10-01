@@ -23,10 +23,11 @@ import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 public class CadastroActivity extends AppCompatActivity {
 
 //    private static final String TAG =
-
-    private Usuario usuario;
+    public static Usuario usuario;
     private FirebaseAuth autenticacao;
+
     private EditText edtTxtNomeCadastro, edtTxtEmailCadastro, edtTxtSenhaCadastro;
+
     private Button btnCadastrarCadastro, btnLoginCadastro;
 
     @Override
