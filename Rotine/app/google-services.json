@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "370989393195",
+    "project_id": "rotine-46b12",
+    "storage_bucket": "rotine-46b12.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370989393195:android:4f61d9edfe4952f4be916e",
+        "android_client_info": {
+          "package_name": "com.example.rotine"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAc89HKSZpgza3a8afWJFftP9vTufBnyDg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
