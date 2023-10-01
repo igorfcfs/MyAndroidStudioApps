@@ -54,10 +54,10 @@
             android:text="Começar Agora"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/email_navdraw" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/email_navdraw"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/concert_one"

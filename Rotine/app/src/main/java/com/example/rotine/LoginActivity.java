@@ -91,7 +91,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void abrirHome(){
-        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+//        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+//        startActivity(intent);
+        Intent intent = new Intent(LoginActivity.this, NavigationDrawerActivity.class);
         startActivity(intent);
     }
 
