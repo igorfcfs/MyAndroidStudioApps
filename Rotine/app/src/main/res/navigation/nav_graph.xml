@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <!-- Destinos de fragmentos -->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.rotine.ui.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+
+        <!-- Ações de navegação -->
+        <action
+            android:id="@+id/action_homeFragment_to_rotinaMatinalFragment"
+            app:destination="@id/rotinaMatinalFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_rotinaTardeFragment"
+            app:destination="@id/rotinaTardeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_rotinaNoturnaFragment"
+            app:destination="@id/rotinaNoturnaFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/rotinaMatinalFragment"
+        android:name="com.example.rotine.ui.manha.RotinaMatinalFragment"
+        android:label="RotinaMatinalFragment"
+        tools:layout="@layout/fragment_rotina_matinal_list" >
+        <action
+            android:id="@+id/action_rotinaMatinalFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rotinaTardeFragment"
+        android:name="com.example.rotine.ui.tarde.RotinaTardeFragment"
+        android:label="RotinaMatinalFragment"
+        tools:layout="@layout/fragment_rotina_tarde_list" >
+        <action
+            android:id="@+id/action_rotinaTardeFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rotinaNoturnaFragment"
+        android:name="com.example.rotine.ui.noite.RotinaNoturnaFragment"
+        android:label="RotinaMatinalFragment"
+        tools:layout="@layout/fragment_rotina_noturna_list" >
+        <action
+            android:id="@+id/action_rotinaNoturnaFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+</navigation>
