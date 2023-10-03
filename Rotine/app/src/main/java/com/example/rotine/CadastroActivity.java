@@ -6,7 +6,9 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -50,9 +52,9 @@ public class CadastroActivity extends AppCompatActivity {
 
     private EditText edtTxtNomeCadastro, edtTxtEmailCadastro, edtTxtSenhaCadastro;
 
-    private Button btnCadastrarCadastro, btnLoginCadastro;
+    private Button btnLoginCadastro;
 
-    private TextView nameNavDraw;
+    private TextView nomeNavDraw;
 
     private ActivityNavigationDrawerBinding binding;
 
@@ -78,7 +80,6 @@ public class CadastroActivity extends AppCompatActivity {
         edtTxtNomeCadastro = findViewById(R.id.edtTxtNomeCadastro);
         edtTxtEmailCadastro = findViewById(R.id.edtTxtEmailCadastro);
         edtTxtSenhaCadastro = findViewById(R.id.edtTxtSenhaCadastro);
-        btnCadastrarCadastro = findViewById(R.id.btnCadastrarCadastro);
     }
 
     private void cadastrarUsuario(){
@@ -89,10 +90,10 @@ public class CadastroActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-//                            Intent intent = new Intent(CadastroActivity.this, LoginActivity.class);
-//                            startActivity(intent);
-//                            Toast.makeText(CadastroActivity.this, "Sucesso ao cadastrar o usuário", Toast.LENGTH_SHORT).show();
-                            atualizarNomeUsuarioNoFirestore();
+                            Intent intent = new Intent(CadastroActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                            Toast.makeText(CadastroActivity.this, "Sucesso ao cadastrar o usuário", Toast.LENGTH_SHORT).show();
+//                            atualizarNomeUsuarioNoFirestore();
                         } else {
 //                            Toast.makeText(CadastroActivity.this, "Opa, ocorreu um erro", Toast.LENGTH_SHORT).show();
                             String excecao = "";
@@ -154,9 +155,9 @@ public class CadastroActivity extends AppCompatActivity {
                                         String nomeDoUsuario = documentSnapshot.getString("nome");
                                         NavigationView navigationView = binding.navView;
                                         View headerView = navigationView.getHeaderView(0);
-                                        nameNavDraw = headerView.findViewById(R.id.nameNavDraw);
+                                        nomeNavDraw = headerView.findViewById(R.id.nomeNavDraw);
 //                                        if(nameNavDraw != null){
-                                            nameNavDraw.setText(nomeDoUsuario);
+                                            nomeNavDraw.setText(nomeDoUsuario);
 //                                        }
                                         // Faça o que quiser com o nome do usuário.
                                     } else {
@@ -189,6 +190,7 @@ public class CadastroActivity extends AppCompatActivity {
 
         if(!nome.isEmpty()){
             if(!email.isEmpty()){
+                salvarDados();
                 if (!senha.isEmpty()){
                     usuario = new Usuario();
 
@@ -206,5 +208,16 @@ public class CadastroActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Preencha o nome", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void salvarDados(){
+        String nome = edtTxtNomeCadastro.getText().toString();
+        String email = edtTxtEmailCadastro.getText().toString();
+        SharedPreferences sharedPref = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("nome", nome);
+        editor.putString("email", email);
+        editor.apply();
     }
 }

@@ -4,27 +4,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.NavigationUI;
 
-import com.example.rotine.MainActivity;
-import com.example.rotine.NavigationDrawerActivity;
-import com.example.rotine.NavigationHomeActivity;
-import com.example.rotine.R;
 import com.example.rotine.databinding.FragmentHomeBinding;
-import com.example.rotine.ui.manha.RotinaMatinalFragment;
-import com.example.rotine.ui.tarde.RotinaTardeFragment;
 
 public class HomeFragment extends Fragment {
 
@@ -41,24 +27,35 @@ public class HomeFragment extends Fragment {
         final TextView textView = binding.textHome;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
+//        NavigationView navigationView = binding.navView;
+
         // Encontre o ImageButton e defina o OnClickListener corretamente
-        ImageButton imgBtnRotinaMatinal = binding.imgBtnRotinaMatinal;
-        imgBtnRotinaMatinal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(root).navigate(R.id.action_homeFragment_to_rotinaMatinalFragment/*nav_home*/);
-            }
-        });
+//        ImageButton imgBtnRotinaMatinal = binding.imgBtnRotinaMatinal;
+//        ImageButton imgBtnRotinaTarde = binding.imgBtnRotinaTarde;
+//        ImageButton imgBtnRotinaNoturna = binding.imgBtnRotinaNoturna;
+
+//        NavController navController = Navigation.findNavController(NavigationHomeActivity, R.id.nav_home);
+//        NavigationUI.setupWithNavController(navigationView, navController);
+
+        //a diferenca entre o NavigationDrawerActivity e o NavigationHomeActivity e que o primeiro consegue navegar entre as abas, ja o segundo nao, preciso descobrir o motivo
+        //aqui nao sera possivel de colocar uma acao no image button, terei de fazer isso na NavigationHomeActivity
+
+//        imgBtnRotinaMatinal.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Navigation.findNavController(root).navigate(R.id.action_homeFragment_to_rotinaMatinalFragment);
+//            }
+//        });
 //        imgBtnRotinaTarde.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Navigation.findNavController(root).navigate(R.id.action_homeFragment_to_rotinaMatinalFragment/*nav_home*/);
+//                Navigation.findNavController(root).navigate(R.id.action_homeFragment_to_rotinaTardeFragment);
 //            }
 //        });
 //        imgBtnRotinaNoturna.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Navigation.findNavController(root).navigate(R.id.action_homeFragment_to_rotinaMatinalFragment/*nav_home*/);
+//                Navigation.findNavController(root).navigate(R.id.action_homeFragment_to_rotinaNoturnaFragment);
 //            }
 //        });
 

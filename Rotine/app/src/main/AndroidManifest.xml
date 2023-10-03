@@ -12,8 +12,18 @@
         android:theme="@style/Theme.Rotine"
         tools:targetApi="31">
         <activity
-            android:name=".NavigationHomeActivity"
+            android:name=".RotinaNoturnaActivity"
             android:exported="false" />
+        <activity
+            android:name=".RotinaTardeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RotinaMatinalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_settings" />
         <activity
             android:name=".AddNovaRotinaActivity"
             android:exported="false" />
