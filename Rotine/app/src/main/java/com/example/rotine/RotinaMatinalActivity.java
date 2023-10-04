@@ -8,8 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -44,7 +42,7 @@ public class RotinaMatinalActivity extends AppCompatActivity {
     }
 
     public void onFabRotinaMatinalClick(View view){
-        Intent intent = new Intent(RotinaMatinalActivity.this, AddNovaRotinaActivity.class);
+        Intent intent = new Intent(RotinaMatinalActivity.this, AddNovaRotinaMatinalActivity.class);
         startActivity(intent);
 
         //os elementos abaixo nao estao presentes no que eu estou inflando no metodo onCreate no statment em que chamo a funcao setContentView passando como parametro o activiti_rotina_matinal
@@ -58,5 +56,4 @@ public class RotinaMatinalActivity extends AppCompatActivity {
 //            }
 //        });
     }
-
 }

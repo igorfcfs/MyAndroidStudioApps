@@ -25,7 +25,13 @@
             android:exported="false"
             android:label="@string/title_activity_settings" />
         <activity
-            android:name=".AddNovaRotinaActivity"
+            android:name=".AddNovaRotinaMatinalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddNovaRotinaTardeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddNovaRotinaNoturnaActivity"
             android:exported="false" />
         <activity
             android:name=".NavigationDrawerActivity"

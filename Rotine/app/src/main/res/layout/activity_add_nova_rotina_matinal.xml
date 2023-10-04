@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddNovaRotinaActivity">
+    tools:context=".AddNovaRotinaMatinalActivity">
 
     <EditText
-        android:id="@+id/edtTxtNomeNovaRotina"
+        android:id="@+id/edtTxtNomeNovaRotinaMatinal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -21,26 +21,26 @@
         app:layout_constraintVertical_bias="0.38" />
 
     <EditText
-        android:id="@+id/edtTxtHorarioRotina"
+        android:id="@+id/edtTxtHorarioRotinaMatinal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="Horário"
         android:inputType="time"
-        app:layout_constraintEnd_toEndOf="@+id/edtTxtNomeNovaRotina"
+        app:layout_constraintEnd_toEndOf="@+id/edtTxtNomeNovaRotinaMatinal"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/edtTxtNomeNovaRotina"
-        app:layout_constraintTop_toBottomOf="@+id/edtTxtNomeNovaRotina" />
+        app:layout_constraintStart_toStartOf="@+id/edtTxtNomeNovaRotinaMatinal"
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtNomeNovaRotinaMatinal" />
 
     <Button
-        android:id="@+id/btnAddNovaRotina"
+        android:id="@+id/btnAddNovaRotinaMatinal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Adicionar Rotina"
-        app:layout_constraintEnd_toEndOf="@+id/edtTxtHorarioRotina"
-        app:layout_constraintStart_toStartOf="@+id/edtTxtHorarioRotina"
-        app:layout_constraintTop_toBottomOf="@+id/edtTxtHorarioRotina" />
+        app:layout_constraintEnd_toEndOf="@+id/edtTxtHorarioRotinaMatinal"
+        app:layout_constraintStart_toStartOf="@+id/edtTxtHorarioRotinaMatinal"
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtHorarioRotinaMatinal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
