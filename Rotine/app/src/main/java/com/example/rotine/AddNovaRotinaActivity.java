@@ -27,13 +27,28 @@ public class AddNovaRotinaActivity extends AppCompatActivity {
 //
 //    private EditText edtTxtNomeNovaRotina;
 
+    private EditText nomeRotina;
+    private EditText horarioRotina;
+    private Button btnAddNovaRotina;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_nova_rotina);
 
+        nomeRotina = findViewById(R.id.edtTxtNomeNovaRotina);
+        horarioRotina = findViewById(R.id.edtTxtHorarioRotina);
+        btnAddNovaRotina = findViewById(R.id.btnAddNovaRotina);
 
-
+        btnAddNovaRotina.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AddNovaRotinaActivity.this, RotinaMatinalActivity.class);
+                startActivity(intent);
+                RotinaMatinalActivity.contacts.add(new Rotina(nomeRotina.getText().toString(), horarioRotina.getText().toString()/*, "https://www.comboinfinito.com.br/principal/wp-content/uploads/2022/03/barbie-marot-robbie.jpg"*/));
+            }
+        });
 
 //        edtTxtNomeNovaRotina = findViewById(R.id.edtTxtNomeNovaRotina);
 //        checkboxContainer = findViewById(R.id.checkboxContainer);
