@@ -1,6 +1,8 @@
 package com.example.rotine;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,4 +35,15 @@ public class AddNovaRotinaNoturnaActivity extends AppCompatActivity {
             }
         });
     }
+
+//    private void salvarDados(){
+//        String nome = edtTxtNomeCadastro.getText().toString();
+//        String email = edtTxtEmailCadastro.getText().toString();
+//        SharedPreferences sharedPref = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+//
+//        SharedPreferences.Editor editor = sharedPref.edit();
+//        editor.putString("nome", nome);
+//        editor.putString("email", email);
+//        editor.apply();
+//    }
 }

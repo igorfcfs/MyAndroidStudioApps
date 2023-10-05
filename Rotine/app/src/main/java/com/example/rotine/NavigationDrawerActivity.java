@@ -3,18 +3,22 @@ package com.example.rotine;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.rotine.databinding.ActivityNavigationDrawerBinding;
 import com.example.rotine.util.ConfiguraBd;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -22,7 +26,6 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.rotine.databinding.ActivityNavigationDrawerBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class NavigationDrawerActivity extends AppCompatActivity {
@@ -30,9 +33,10 @@ public class NavigationDrawerActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityNavigationDrawerBinding binding;
-
     private TextView nomeNavDraw, emailNavDraw;
-
+    private ImageView imgProfileSelectImage;
+    private static final int PICK_IMAGE_REQUEST = 1; // Código de solicitação para selecionar uma imagem
+    private Uri selectedImageUri; // URI da imagem selecionad
     private ImageButton imgBtnRotinaMatinal, imgBtnRotinaTarde, imgBtnRotinaNoturna;
 
     @Override
@@ -42,16 +46,18 @@ public class NavigationDrawerActivity extends AppCompatActivity {
         binding = ActivityNavigationDrawerBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        imgProfileSelectImage = findViewById(R.id.imgProfileSelectImage);
+
         setSupportActionBar(binding.appBarNavigationDrawer.toolbar);
-        binding.appBarNavigationDrawer.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-                Intent intent = new Intent(NavigationDrawerActivity.this, AddNovaRotinaMatinalActivity.class);
-                startActivity(intent);
-            }
-        });
+//        binding.appBarNavigationDrawer.fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+////                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+////                        .setAction("Action", null).show();
+//                Intent intent = new Intent(NavigationDrawerActivity.this, AddNovaRotinaMatinalActivity.class);
+//                startActivity(intent);
+//            }
+//        });
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
@@ -118,7 +124,46 @@ public class NavigationDrawerActivity extends AppCompatActivity {
 //        if(emailNavDraw != null){
 //            emailNavDraw.setText(auth.getCurrentUser().getEmail());
 //        }
+
+
+//        imgProfileSelectImage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                selectImage(v);
+//            }
+//        });
+
         recuperarDados();
+    }
+
+    public void onImgProfileClick(View view){
+        selectImage(view);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            selectedImageUri = data.getData();
+            // Aqui, você pode usar a URI da imagem selecionada para realizar ações, como exibir a imagem em um ImageView ou fazer upload dela para algum servidor.
+            // Por exemplo:
+            // ImageView imageView = findViewById(R.id.imageView);
+            // imageView.setImageURI(selectedImageUri);
+//            imgProfile.setImageIcon(Icon.createWithContentUri(selectedImageUri));
+
+            //imgProfileSelectImage == null????
+            if (imgProfileSelectImage != null) {
+                imgProfileSelectImage.setImageURI(selectedImageUri);
+            }
+        }
+    }
+
+    public void selectImage(View view) {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Selecione uma imagem"), PICK_IMAGE_REQUEST);
     }
 
     private void recuperarDados(){

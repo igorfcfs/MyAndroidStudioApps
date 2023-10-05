@@ -37,7 +37,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imgLogoRotine"
             android:layout_width="91dp"
             android:layout_height="41dp"
             android:layout_marginStart="8dp"

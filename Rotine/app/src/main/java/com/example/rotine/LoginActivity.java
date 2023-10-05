@@ -6,11 +6,14 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.rotine.util.ConfiguraBd;
@@ -28,6 +31,8 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnCadastrarLogin, btnAcessarLogin;
     EditText edtTxtEmailLogin, edtTxtSenhaLogin;
     private FirebaseAuth auth;
+
+    private TextView nomeNavDraw, emailNavDraw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,7 +103,17 @@ public class LoginActivity extends AppCompatActivity {
 //        startActivity(intent);
         Intent intent = new Intent(LoginActivity.this, NavigationDrawerActivity.class);
         startActivity(intent);
+//        recuperarDados();
     }
+
+//    private void recuperarDados(){
+//        SharedPreferences sharedPref = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+////        int defaultValue = getResources().getInteger(R.integer.);
+//        String nome = sharedPref.getString("nome", "Sem nome");
+//        String email = sharedPref.getString("email", "Sem email");
+////        nomeNavDraw.setText(nome);
+////        emailNavDraw.setText(email);
+//    }
 
     protected void onStart(){
         super.onStart();
@@ -112,5 +127,8 @@ public class LoginActivity extends AppCompatActivity {
         edtTxtEmailLogin = findViewById(R.id.edtTxtEmailLogin);
         edtTxtSenhaLogin = findViewById(R.id.edtTxtSenhaLogin);
         btnAcessarLogin = findViewById(R.id.btnAcessarLogin);
+
+//        nomeNavDraw = findViewById(R.id.edtTxtNomeCadastro);
+//        emailNavDraw = findViewById(R.id.edtTxtEmailCadastro);
     }
 }
